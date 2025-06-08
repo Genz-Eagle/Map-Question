@@ -1,0 +1,40 @@
+package Map;
+import java.util.Map;
+import java.util.HashMap;
+
+public class Ganagrams {
+    public static void main(String[] args) {
+        String str1 = "silent";
+        String str2 = "listen";
+        HashMap<Character, Integer> hm = new HashMap<>();
+        HashMap<Character, Integer> hm2 = new HashMap<>();
+
+        char[] arr = str1.toCharArray();
+        for(char ch: arr){
+            if(hm.containsKey(ch)){
+                hm.put(ch, hm.get(ch)+1);
+            }
+            else{
+                hm.put(ch, 1);
+            }
+        }
+
+        char[] arr2 = str2.toCharArray();
+        for(char val: arr2){
+            if(hm2.containsKey(val)){
+                hm2.put(val, hm2.get(val)+1);
+            }
+            else{
+                hm2.put(val, 1);
+            }
+        }
+        System.out.println(hm);
+        System.out.println(hm2);
+        if(hm.equals(hm2)){
+            System.out.println("this string angrams");
+        }
+        else{
+            System.out.println("Not Angrams");
+        }
+    }
+}
