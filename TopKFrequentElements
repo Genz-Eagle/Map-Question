@@ -1,0 +1,34 @@
+package Map;
+import java.util.HashMap;
+import java.util.Map;
+
+public class CTopKFrequentElements {
+    public static void main(String[] args) {
+        int arr[] = {1, 1,5, 1, 2, 2,5,5, 3, 3,5};
+        int k=2;
+        HashMap<Integer,Integer> map = new HashMap<>();
+
+        for(int num: arr){
+            if(map.containsKey(num)){
+                map.put(num, map.get(num)+1);
+            }else{
+                map.put(num, 1);
+            }
+        }
+        int loop=1;
+        while(loop<=k){
+            int MaxFreq=0;
+            int KeyWithMaxFreq = 0;
+            for(Map.Entry<Integer, Integer>entry: map.entrySet()){
+                if(entry.getValue()>MaxFreq){
+                    MaxFreq = entry.getValue();
+                   KeyWithMaxFreq = entry.getKey();
+                }
+            }
+            System.out.println(KeyWithMaxFreq);
+            map.remove(KeyWithMaxFreq);
+            loop++;
+        }
+    }
+
+}
