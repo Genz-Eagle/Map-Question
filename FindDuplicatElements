@@ -1,0 +1,26 @@
+package Map;
+import java.util.HashMap;
+import java.util.Map;
+
+public class FindDuplicatElements {
+    public static void main(String[] args) {
+        int[] arr= {2,4,3,7,3,4};
+        HashMap<Integer,Integer> hm =new HashMap<>();
+
+        for(int i : arr){
+            if(hm.containsKey(i)){
+                hm.put(i, hm.get(i)+1);
+            }
+            else{
+                hm.put(i ,1);
+            }
+        }
+        System.out.println("Duplicates Elements are: ");
+        for(Map.Entry<Integer, Integer>entry : hm.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.println(entry.getKey() + "->" + entry.getValue());
+            }
+//            System.out.println(hm.entrySet());
+        }
+    }
+}
