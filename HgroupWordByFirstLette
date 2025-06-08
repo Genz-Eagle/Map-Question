@@ -1,0 +1,25 @@
+package Map;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+
+public class HgroupWordByFirstLetter {
+    public static void main(String[] args) {
+        String animal = "cat, ball, bat, dog, cow";
+        HashMap<Character, ArrayList<String>> map= new HashMap<>();
+        String arr[] = animal.split(",");
+        for(String word : arr){
+            word= word.trim();
+             if(map.containsKey(word.charAt(0))){
+                 map.get(word.charAt(0)).add(word);
+             }
+             else{
+                 ArrayList<String> list = new ArrayList<>();
+                 list.add(word);
+                 map.put(word.charAt(0), list);
+
+             }
+        }
+        System.out.println(map);
+    }
+}
