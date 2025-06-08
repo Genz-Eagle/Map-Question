@@ -1,0 +1,26 @@
+package Map;
+
+import java.util.HashMap;
+import java.util.*;
+
+public class IAnagramGrouping {
+    public static void main(String[] args) {
+        String sentence = "listen, silent, enlist, rat, tar, art";
+        String word[] = sentence.split(",");
+        HashMap<String, ArrayList<String>> hm = new HashMap<>();
+
+        for(String val: word){
+            val = val.trim();
+//            convert word to char array
+            char[] arr = val.toCharArray();
+            Arrays.sort(arr);  //2 Sort chars
+            String sortedWord = new String(arr);  //3 Back to String
+
+//            4 Add to map
+            hm.computeIfAbsent(sortedWord, k -> new ArrayList<>()).add(val);
+        }
+
+//        5 Print the grouped anagrams
+        System.out.println(hm);
+    }
+}
